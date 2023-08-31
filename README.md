@@ -17,6 +17,28 @@ etc.
 
 There is no need to be able to convert numbers larger than about 3000. (The Romans themselves didn’t tend to go any higher)
 
+## Roman Numbers ##
+
+### Basic Symbols ###
+
+| 1 | 5 | 10 | 50 | 100 | 500 | 1000 |
+|:-:|:-:|:--:|:--:|:---:|:---:|:----:|
+| I | V | X  | L  | C   | D   | M    |
+
+### Basic Combinations ###
+
+| 1 | 2  | 3   | 4  | 5 | 6  | 7   | 8    | 9  |
+|:-:|:--:|:---:|:--:|:-:|:--:|:---:|:----:|:--:|
+| I | II | III | IV | V | VI | VII | VIII | IX |
+
+| 10 | 20 | 30  | 40 | 50 | 60 | 70  | 80   | 90 |
+|:--:|:--:|:---:|:--:|:--:|:--:|:---:|:----:|:--:|
+| X  | XX | XXX | XL | L  | LX | LXX | LXXX | XC |
+
+| 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800  | 900 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:----:|:---:|
+| C   | CC  | CCC | CD  | D   | DC  | DCC | DCCC | CM  |
+
 ## Part II
 
 Write a function to convert in the other direction, ie numeral to digit
