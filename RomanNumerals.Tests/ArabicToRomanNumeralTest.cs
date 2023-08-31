@@ -86,4 +86,14 @@ public class ArabicToRomanNumeralTest
         const string expectedRomanValue = "XV";
         result.Should().Be(expectedRomanValue);
     }
+
+    [Fact]
+    public void Convert14ToXIV()
+    {
+        const int arabicNumber = 14;
+        var result = arabicNumber.ArabicToRomanNumeral();
+
+        const string expectedRomanValue = "XIV";
+        result.Should().Be(expectedRomanValue);
+    }
 }
