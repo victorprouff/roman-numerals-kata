@@ -45,4 +45,14 @@ public class ArabicToRomanNumeralTest
 
         result.Should().Be(expectedRomanValue);
     }
+
+    [Fact]
+    public void Convert9ToIX()
+    {
+        const int arabicNumber = 9;
+        var result = arabicNumber.ArabicToRomanNumeral();
+
+        const string expectedRomanValue = "IX";
+        result.Should().Be(expectedRomanValue);
+    }
 }

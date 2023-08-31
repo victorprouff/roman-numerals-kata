@@ -6,6 +6,11 @@ public static class RomanNumbersConverter
     {
         var result = string.Empty;
 
+        if (number == 9)
+        {
+            return "IX";
+        }
+
         if (number == 4)
         {
             return "IV";
