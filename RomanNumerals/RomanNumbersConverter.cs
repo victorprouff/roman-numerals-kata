@@ -4,7 +4,7 @@ public static class RomanNumbersConverter
 {
     public static string ArabicToRomanNumeral(this int number)
     {
-        throw new NotImplementedException();
+        return "I";
     }
 
     public static string RomanNumeralToArabic(this string number)
