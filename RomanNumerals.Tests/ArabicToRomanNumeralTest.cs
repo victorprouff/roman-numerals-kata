@@ -8,92 +8,26 @@ public class ArabicToRomanNumeralTest
     [InlineData(1, "I")]
     [InlineData(2, "II")]
     [InlineData(3, "III")]
-    public void ConversionFrom1To3(int arabicNumber, string expectedRomanValue)
-    {
-        var result = arabicNumber.ArabicToRomanNumeral();
-
-        result.Should().Be(expectedRomanValue);
-    }
-
-    [Fact]
-    public void Convert5ToV()
-    {
-        const int arabicNumber = 5;
-        var result = arabicNumber.ArabicToRomanNumeral();
-
-        const string expectedRomanValue = "V";
-        result.Should().Be(expectedRomanValue);
-    }
-
-    [Fact]
-    public void Convert4ToIV()
-    {
-        const int arabicNumber = 4;
-        var result = arabicNumber.ArabicToRomanNumeral();
-
-        const string expectedRomanValue = "IV";
-        result.Should().Be(expectedRomanValue);
-    }
-
-    [Theory]
+    [InlineData(4, "IV")]
+    [InlineData(5, "V")]
     [InlineData(6, "VI")]
     [InlineData(7, "VII")]
     [InlineData(8, "VIII")]
-    public void ConversionFrom6To8(int arabicNumber, string expectedRomanValue)
-    {
-        var result = arabicNumber.ArabicToRomanNumeral();
-
-        result.Should().Be(expectedRomanValue);
-    }
-
-    [Fact]
-    public void Convert9ToIX()
-    {
-        const int arabicNumber = 9;
-        var result = arabicNumber.ArabicToRomanNumeral();
-
-        const string expectedRomanValue = "IX";
-        result.Should().Be(expectedRomanValue);
-    }
-
-    [Fact]
-    public void Convert10ToX()
-    {
-        const int arabicNumber = 10;
-        var result = arabicNumber.ArabicToRomanNumeral();
-
-        const string expectedRomanValue = "X";
-        result.Should().Be(expectedRomanValue);
-    }
-
-    [Theory]
+    [InlineData(9, "IX")]
+    [InlineData(10, "X")]
     [InlineData(11, "XI")]
     [InlineData(12, "XII")]
     [InlineData(13, "XIII")]
-    public void ConversionFrom11To13(int arabicNumber, string expectedRomanValue)
+    [InlineData(14, "XIV")]
+    [InlineData(15, "XV")]
+    [InlineData(16, "XVI")]
+    [InlineData(17, "XVII")]
+    [InlineData(18, "XVIII")]
+    [InlineData(19, "XIX")]
+    public void Conversion(int arabicNumber, string expectedRomanValue)
     {
         var result = arabicNumber.ArabicToRomanNumeral();
 
-        result.Should().Be(expectedRomanValue);
-    }
-
-    [Fact]
-    public void Convert15oXV()
-    {
-        const int arabicNumber = 15;
-        var result = arabicNumber.ArabicToRomanNumeral();
-
-        const string expectedRomanValue = "XV";
-        result.Should().Be(expectedRomanValue);
-    }
-
-    [Fact]
-    public void Convert14ToXIV()
-    {
-        const int arabicNumber = 14;
-        var result = arabicNumber.ArabicToRomanNumeral();
-
-        const string expectedRomanValue = "XIV";
         result.Should().Be(expectedRomanValue);
     }
 }
