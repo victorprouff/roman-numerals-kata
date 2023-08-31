@@ -55,4 +55,14 @@ public class ArabicToRomanNumeralTest
         const string expectedRomanValue = "IX";
         result.Should().Be(expectedRomanValue);
     }
+
+    [Fact]
+    public void Convert10ToX()
+    {
+        const int arabicNumber = 10;
+        var result = arabicNumber.ArabicToRomanNumeral();
+
+        const string expectedRomanValue = "X";
+        result.Should().Be(expectedRomanValue);
+    }
 }

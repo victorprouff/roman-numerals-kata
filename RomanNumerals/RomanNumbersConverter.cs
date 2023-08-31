@@ -16,6 +16,11 @@ public static class RomanNumbersConverter
             return "IV";
         }
 
+        if (number == 10)
+        {
+            return "X";
+        }
+
         if (number >= 5)
         {
             number -= 5;
