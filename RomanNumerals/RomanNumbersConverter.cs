@@ -43,6 +43,13 @@ public static class RomanNumbersConverter
             return result;
         }
 
+        if (tens == 9)
+        {
+            result += "XC";
+
+            return result;
+        }
+
         if (tens is >= 5 and < 9)
         {
             tens -= 5;
