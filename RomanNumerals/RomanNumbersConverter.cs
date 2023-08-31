@@ -6,14 +6,17 @@ public static class RomanNumbersConverter
     {
         var result = string.Empty;
 
-        number = CalculateTens(number, ref result);
+        var tens = number / 10;
+        number -= 10 * tens;
+
+        result += CalculateTens(tens);
 
         return CalculateOnes(number, result);
     }
 
-    private static int CalculateTens(int number, ref string result)
+    private static string CalculateTens(int tens)
     {
-        var tens = number / 10;
+        var result = string.Empty;
 
         if (tens < 4)
         {
@@ -33,9 +36,18 @@ public static class RomanNumbersConverter
             result += "L";
         }
 
-        number -= 10 * tens;
+        // if (tens is >= 5 and < 9)
+        // {
+        //     tens -= 5;
+        //     result += "V";
+        //
+        //     for (var i = 1; i <= tens; i++)
+        //     {
+        //         result += "I";
+        //     }
+        // }
 
-        return number;
+        return result;
     }
 
     private static string CalculateOnes(int number, string result)
