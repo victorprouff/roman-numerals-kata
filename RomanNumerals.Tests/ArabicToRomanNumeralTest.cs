@@ -12,4 +12,13 @@ public class ArabicToRomanNumeralTest
 
         result.Should().Be("I");
     }
+
+    [Fact]
+    public void Convert2ToII()
+    {
+        const int inputValue = 2;
+        var result = inputValue.ArabicToRomanNumeral();
+
+        result.Should().Be("II");
+    }
 }

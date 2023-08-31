@@ -4,7 +4,12 @@ public static class RomanNumbersConverter
 {
     public static string ArabicToRomanNumeral(this int number)
     {
-        return "I";
+        if (number == 1)
+        {
+            return "I";
+        }
+
+        return "II";
     }
 
     public static string RomanNumeralToArabic(this string number)
