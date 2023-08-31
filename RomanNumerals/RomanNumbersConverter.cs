@@ -6,6 +6,11 @@ public static class RomanNumbersConverter
     {
         var result = string.Empty;
 
+        if (number == 5)
+        {
+            return "V";
+        }
+
         for (var i = 1; i <= number; i++)
         {
             result += "I";
@@ -18,5 +23,4 @@ public static class RomanNumbersConverter
     {
         throw new NotImplementedException();
     }
-
 }
