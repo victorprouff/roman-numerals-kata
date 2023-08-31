@@ -25,16 +25,22 @@ public static class RomanNumbersConverter
             {
                 result += "X";
             }
+
+            return result;
         }
 
         if (tens == 4)
         {
             result += "XL";
+
+            return result;
         }
 
         if (tens == 5)
         {
             result += "L";
+
+            return result;
         }
 
         // if (tens is >= 5 and < 9)
