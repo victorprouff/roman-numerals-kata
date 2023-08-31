@@ -28,6 +28,11 @@ public static class RomanNumbersConverter
             result += "XL";
         }
 
+        if (tens == 5)
+        {
+            result += "L";
+        }
+
         number -= 10 * tens;
 
         return number;
