@@ -7,11 +7,12 @@ public static class RomanNumbersConverter
         var result = string.Empty;
 
         var tens = number / 10;
-        number -= 10 * tens;
+        var ones = number - 10 * tens;
 
         result += CalculateTens(tens);
+        result += CalculateOnes(ones);
 
-        return CalculateOnes(number, result);
+        return result;
     }
 
     private static string CalculateTens(int tens)
@@ -50,8 +51,10 @@ public static class RomanNumbersConverter
         return result;
     }
 
-    private static string CalculateOnes(int number, string result)
+    private static string CalculateOnes(int number)
     {
+        var result = string.Empty;
+
         if (number < 4)
         {
             for (var i = 1; i <= number; i++)
