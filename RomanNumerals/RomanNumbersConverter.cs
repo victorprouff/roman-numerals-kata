@@ -6,13 +6,26 @@ public static class RomanNumbersConverter
     {
         var result = string.Empty;
 
-        if (number >= 10)
-        {
-            number -= 10;
-            result += "X";
-        }
+        number = CalculateTens(number, ref result);
 
         return CalculateOnes(number, result);
+    }
+
+    private static int CalculateTens(int number, ref string result)
+    {
+        var tens = number / 10;
+
+        if (tens < 4)
+        {
+            number -= 10 * tens;
+            for (var i = 1; i <= tens; i++)
+            {
+                result += "X";
+
+            }
+        }
+
+        return number;
     }
 
     private static string CalculateOnes(int number, string result)

@@ -24,7 +24,21 @@ public class ArabicToRomanNumeralTest
     [InlineData(17, "XVII")]
     [InlineData(18, "XVIII")]
     [InlineData(19, "XIX")]
-    public void Conversion(int arabicNumber, string expectedRomanValue)
+    public void ConversionOnes(int arabicNumber, string expectedRomanValue)
+    {
+        var result = arabicNumber.ArabicToRomanNumeral();
+
+        result.Should().Be(expectedRomanValue);
+    }
+
+    [Theory]
+    [InlineData(10, "X")]
+    [InlineData(20, "XX")]
+    [InlineData(22, "XXII")]
+    [InlineData(30, "XXX")]
+    [InlineData(33, "XXXIII")]
+    [InlineData(34, "XXXIV")]
+    public void ConvertTens(int arabicNumber, string expectedRomanValue)
     {
         var result = arabicNumber.ArabicToRomanNumeral();
 
