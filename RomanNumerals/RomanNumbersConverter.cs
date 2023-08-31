@@ -11,9 +11,10 @@ public static class RomanNumbersConverter
             return "IV";
         }
 
-        if (number == 5)
+        if (number >= 5)
         {
-            return "V";
+            number -= 5;
+            result = "V";
         }
 
         for (var i = 1; i <= number; i++)

@@ -8,7 +8,7 @@ public class ArabicToRomanNumeralTest
     [InlineData(1, "I")]
     [InlineData(2, "II")]
     [InlineData(3, "III")]
-    public void BasicConversion(int arabicNumber, string expectedRomanValue)
+    public void ConversionFrom1To3(int arabicNumber, string expectedRomanValue)
     {
         var result = arabicNumber.ArabicToRomanNumeral();
 
@@ -32,6 +32,17 @@ public class ArabicToRomanNumeralTest
         var result = arabicNumber.ArabicToRomanNumeral();
 
         const string expectedRomanValue = "IV";
+        result.Should().Be(expectedRomanValue);
+    }
+
+    [Theory]
+    [InlineData(6, "VI")]
+    [InlineData(7, "VII")]
+    [InlineData(8, "VIII")]
+    public void ConversionFrom6To8(int arabicNumber, string expectedRomanValue)
+    {
+        var result = arabicNumber.ArabicToRomanNumeral();
+
         result.Should().Be(expectedRomanValue);
     }
 }
