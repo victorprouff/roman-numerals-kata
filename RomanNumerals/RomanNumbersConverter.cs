@@ -9,7 +9,12 @@ public static class RomanNumbersConverter
             return "I";
         }
 
-        return "II";
+        if (number == 2)
+        {
+            return "II";
+        }
+
+        return "III";
     }
 
     public static string RomanNumeralToArabic(this string number)

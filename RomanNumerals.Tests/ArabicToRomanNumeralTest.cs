@@ -21,4 +21,13 @@ public class ArabicToRomanNumeralTest
 
         result.Should().Be("II");
     }
+
+    [Fact]
+    public void Convert3ToIII()
+    {
+        const int inputValue = 3;
+        var result = inputValue.ArabicToRomanNumeral();
+
+        result.Should().Be("III");
+    }
 }
