@@ -38,6 +38,9 @@ public class ArabicToRomanNumeralTest
     [InlineData(30, "XXX")]
     [InlineData(33, "XXXIII")]
     [InlineData(34, "XXXIV")]
+    [InlineData(40, "XL")]
+    [InlineData(41, "XLI")]
+    [InlineData(49, "XLIX")]
     public void ConvertTens(int arabicNumber, string expectedRomanValue)
     {
         var result = arabicNumber.ArabicToRomanNumeral();

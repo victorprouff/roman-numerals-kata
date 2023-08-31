@@ -17,13 +17,18 @@ public static class RomanNumbersConverter
 
         if (tens < 4)
         {
-            number -= 10 * tens;
             for (var i = 1; i <= tens; i++)
             {
                 result += "X";
-
             }
         }
+
+        if (tens == 4)
+        {
+            result += "XL";
+        }
+
+        number -= 10 * tens;
 
         return number;
     }
