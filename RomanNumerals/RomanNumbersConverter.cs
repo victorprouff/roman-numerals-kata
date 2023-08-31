@@ -6,12 +6,7 @@ public static class RomanNumbersConverter
     {
         var result = string.Empty;
 
-        if (number == 9)
-        {
-            return "IX";
-        }
-
-        if (number == 4)
+        if (number is 9 or 4)
         {
             result += "I";
             number++;
@@ -19,7 +14,8 @@ public static class RomanNumbersConverter
 
         if (number == 10)
         {
-            return "X";
+            number -= 10;
+            result += "X";
         }
 
         if (number >= 5)
