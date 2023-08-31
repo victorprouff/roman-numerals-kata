@@ -4,17 +4,14 @@ public static class RomanNumbersConverter
 {
     public static string ArabicToRomanNumeral(this int number)
     {
-        if (number == 1)
+        var result = string.Empty;
+
+        for (var i = 1; i <= number; i++)
         {
-            return "I";
+            result += "I";
         }
 
-        if (number == 2)
-        {
-            return "II";
-        }
-
-        return "III";
+        return result;
     }
 
     public static string RomanNumeralToArabic(this string number)
