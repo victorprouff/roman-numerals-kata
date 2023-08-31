@@ -24,4 +24,14 @@ public class ArabicToRomanNumeralTest
         const string expectedRomanValue = "V";
         result.Should().Be(expectedRomanValue);
     }
+
+    [Fact]
+    public void Convert4ToIV()
+    {
+        const int arabicNumber = 4;
+        var result = arabicNumber.ArabicToRomanNumeral();
+
+        const string expectedRomanValue = "IV";
+        result.Should().Be(expectedRomanValue);
+    }
 }
