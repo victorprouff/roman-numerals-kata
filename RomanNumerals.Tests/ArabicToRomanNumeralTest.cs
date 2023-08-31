@@ -65,4 +65,15 @@ public class ArabicToRomanNumeralTest
         const string expectedRomanValue = "X";
         result.Should().Be(expectedRomanValue);
     }
+
+    [Theory]
+    [InlineData(11, "XI")]
+    [InlineData(12, "XII")]
+    [InlineData(13, "XIII")]
+    public void ConversionFrom11To13(int arabicNumber, string expectedRomanValue)
+    {
+        var result = arabicNumber.ArabicToRomanNumeral();
+
+        result.Should().Be(expectedRomanValue);
+    }
 }

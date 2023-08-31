@@ -12,7 +12,7 @@ public static class RomanNumbersConverter
             number++;
         }
 
-        if (number == 10)
+        if (number >= 10)
         {
             number -= 10;
             result += "X";
