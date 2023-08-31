@@ -43,16 +43,16 @@ public static class RomanNumbersConverter
             return result;
         }
 
-        // if (tens is >= 5 and < 9)
-        // {
-        //     tens -= 5;
-        //     result += "V";
-        //
-        //     for (var i = 1; i <= tens; i++)
-        //     {
-        //         result += "I";
-        //     }
-        // }
+        if (tens is >= 5 and < 9)
+        {
+            tens -= 5;
+            result += "L";
+
+            for (var i = 1; i <= tens; i++)
+            {
+                result += "X";
+            }
+        }
 
         return result;
     }
