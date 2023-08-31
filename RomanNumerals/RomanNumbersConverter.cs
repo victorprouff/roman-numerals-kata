@@ -13,7 +13,8 @@ public static class RomanNumbersConverter
 
         if (number == 4)
         {
-            return "IV";
+            result += "I";
+            number++;
         }
 
         if (number == 10)
@@ -24,7 +25,7 @@ public static class RomanNumbersConverter
         if (number >= 5)
         {
             number -= 5;
-            result = "V";
+            result += "V";
         }
 
         for (var i = 1; i <= number; i++)
