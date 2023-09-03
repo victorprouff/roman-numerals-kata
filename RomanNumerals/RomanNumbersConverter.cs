@@ -7,7 +7,7 @@ public static class RomanNumbersConverter
         var result = string.Empty;
 
         var hundreds = new HundredNumber(number);
-        var tens = new TensNumber(CalculateTensNumber(number, hundreds.Number));
+        var tens = new TensNumber(number, hundreds.Number);
         var ones = new OnesNumber(CalculateOnesNumber(number, hundreds.Number, tens.Number));
 
         result += hundreds.CalculateFromArabicNumber();
@@ -17,8 +17,6 @@ public static class RomanNumbersConverter
         return result;
     }
 
-
-    private static int CalculateTensNumber(int number, int hundreds) => (number - hundreds * 100) / 10;
     private static int CalculateOnesNumber(int number, int hundreds, int tens) => number - hundreds * 100 - 10 * tens;
 
     public static string RomanNumeralToArabic(this string number)
@@ -93,23 +91,6 @@ public abstract class RomanNumber
     }
 }
 
-public class OnesNumber : RomanNumber
-{
-    public OnesNumber(int number)
-        : base(number, "I", "V", "X")
-    {
-    }
-
-}
-
-public class TensNumber : RomanNumber
-{
-    public TensNumber(int number)
-        : base(number, "X", "L", "C")
-    {
-    }
-}
-
 public class HundredNumber : RomanNumber
 {
     public HundredNumber(int number)
@@ -118,4 +99,23 @@ public class HundredNumber : RomanNumber
     }
 
     private static int CalculateHundredNumber(int number) => number / 100;
+}
+
+public class TensNumber : RomanNumber
+{
+    public TensNumber(int number, int hundredsNumber)
+        : base(CalculateTensNumber(number, hundredsNumber), "X", "L", "C")
+    {
+    }
+
+    private static int CalculateTensNumber(int number, int hundreds) => (number - hundreds * 100) / 10;
+}
+
+public class OnesNumber : RomanNumber
+{
+    public OnesNumber(int number)
+        : base(number, "I", "V", "X")
+    {
+    }
+
 }
