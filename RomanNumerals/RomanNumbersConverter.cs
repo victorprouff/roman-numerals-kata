@@ -8,7 +8,7 @@ public static class RomanNumbersConverter
 
         var hundreds = new HundredNumber(number);
         var tens = new TensNumber(number, hundreds.Number);
-        var ones = new OnesNumber(CalculateOnesNumber(number, hundreds.Number, tens.Number));
+        var ones = new OnesNumber(number, hundreds.Number, tens.Number);
 
         result += hundreds.CalculateFromArabicNumber();
         result += tens.CalculateFromArabicNumber();
@@ -16,8 +16,6 @@ public static class RomanNumbersConverter
 
         return result;
     }
-
-    private static int CalculateOnesNumber(int number, int hundreds, int tens) => number - hundreds * 100 - 10 * tens;
 
     public static string RomanNumeralToArabic(this string number)
     {
@@ -113,9 +111,10 @@ public class TensNumber : RomanNumber
 
 public class OnesNumber : RomanNumber
 {
-    public OnesNumber(int number)
-        : base(number, "I", "V", "X")
+    public OnesNumber(int number, int hundredsNumber, int tensNumber)
+        : base(CalculateOnesNumber(number, hundredsNumber, tensNumber), "I", "V", "X")
     {
     }
 
+    private static int CalculateOnesNumber(int number, int hundreds, int tens) => number - hundreds * 100 - 10 * tens;
 }
