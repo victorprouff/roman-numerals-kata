@@ -35,6 +35,13 @@ public static class RomanNumbersConverter
             return result;
         }
 
+        if (hundreds == 5)
+        {
+            result += "D";
+
+            return result;
+        }
+
         return result;
     }
 
