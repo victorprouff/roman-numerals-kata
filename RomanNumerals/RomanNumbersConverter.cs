@@ -42,6 +42,17 @@ public static class RomanNumbersConverter
             return result;
         }
 
+        if (hundreds is >= 5 and < 9)
+        {
+            hundreds -= 5;
+            result += "D";
+
+            for (var i = 1; i <= hundreds; i++)
+            {
+                result += "C";
+            }
+        }
+
         return result;
     }
 
