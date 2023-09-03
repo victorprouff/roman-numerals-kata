@@ -8,11 +8,11 @@ public static class RomanNumbersConverter
 
         var hundreds = number / 100;
         var tens = (number - hundreds * 100) / 10;
-        var ones = number - hundreds * 100 - 10 * tens;
 
+        var ones = new OnesNumber(number - hundreds * 100 - 10 * tens);
         result += CalculateHundreds(hundreds);
         result += CalculateTens(tens);
-        result += CalculateOnes(ones);
+        result += ones.CalculateFromArabicNumber();
 
         return result;
     }
@@ -112,57 +112,82 @@ public static class RomanNumbersConverter
         return result;
     }
 
-    private static string CalculateOnes(int number)
+    public static string RomanNumeralToArabic(this string number)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public abstract class RomanNumber
+{
+    private int Number { get; set; }
+
+    protected RomanNumber(int number, string unit, string middle, string superiorUnit)
+    {
+        Number = number;
+        Unit = unit;
+        Middle = middle;
+        SuperiorUnit = superiorUnit;
+    }
+
+    private string Unit { get; }
+    private string Middle { get; }
+    private string SuperiorUnit { get; }
+
+    public string CalculateFromArabicNumber()
     {
         var result = string.Empty;
 
-        if (number < 4)
+        if (Number < 4)
         {
-            for (var i = 1; i <= number; i++)
+            for (var i = 1; i <= Number; i++)
             {
-                result += "I";
+                result += Unit;
             }
 
             return result;
         }
 
-        if (number == 4)
+        if (Number == 4)
         {
-            result += "IV";
+            result += $"{Unit}{Middle}";
 
             return result;
         }
 
-        if (number == 9)
+        if (Number == 9)
         {
-            result += "IX";
+            result += $"{Unit}{SuperiorUnit}";
 
             return result;
         }
 
-        if (number == 5)
+        if (Number == 5)
         {
-            result += "V";
+            result += $"{Middle}";
 
             return result;
         }
 
-        if (number is >= 5 and < 9)
+        if (Number is >= 5 and < 9)
         {
-            number -= 5;
-            result += "V";
+            Number -= 5;
+            result += $"{Middle}";
 
-            for (var i = 1; i <= number; i++)
+            for (var i = 1; i <= Number; i++)
             {
-                result += "I";
+                result += $"{Unit}";
             }
         }
 
         return result;
     }
+}
 
-    public static string RomanNumeralToArabic(this string number)
+public class OnesNumber : RomanNumber
+{
+    public OnesNumber(int number)
+        : base(number, "I", "V", "X")
     {
-        throw new NotImplementedException();
     }
 }
