@@ -6,59 +6,13 @@ public static class RomanNumbersConverter
     {
         var result = string.Empty;
 
-        var hundreds = number / 100;
+        var hundreds = new HundredNumber(number / 100);
+        var tens = new TensNumber((number - hundreds.Number * 100) / 10);
+        var ones = new OnesNumber(number - hundreds.Number * 100 - 10 * tens.Number);
 
-        var tens = new TensNumber((number - hundreds * 100) / 10);
-        var ones = new OnesNumber(number - hundreds * 100 - 10 * tens.Number);
-        result += CalculateHundreds(hundreds);
+        result += hundreds.CalculateFromArabicNumber();
         result += tens.CalculateFromArabicNumber();
         result += ones.CalculateFromArabicNumber();
-
-        return result;
-    }
-
-    private static string CalculateHundreds(int hundreds)
-    {
-        var result = string.Empty;
-        if (hundreds < 4)
-        {
-            for (var i = 1; i <= hundreds; i++)
-            {
-                result += "C";
-            }
-        }
-
-        if (hundreds == 4)
-        {
-            result += "CD";
-
-            return result;
-        }
-
-        if (hundreds == 5)
-        {
-            result += "D";
-
-            return result;
-        }
-
-        if (hundreds == 9)
-        {
-            result += "CM";
-
-            return result;
-        }
-
-        if (hundreds is >= 5 and < 9)
-        {
-            hundreds -= 5;
-            result += "D";
-
-            for (var i = 1; i <= hundreds; i++)
-            {
-                result += "C";
-            }
-        }
 
         return result;
     }
@@ -147,6 +101,14 @@ public class TensNumber : RomanNumber
 {
     public TensNumber(int number)
         : base(number, "X", "L", "C")
+    {
+    }
+}
+
+public class HundredNumber : RomanNumber
+{
+    public HundredNumber(int number)
+        : base(number, "C", "D", "M")
     {
     }
 }
