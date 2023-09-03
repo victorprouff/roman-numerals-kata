@@ -7,8 +7,8 @@ public static class RomanNumbersConverter
         var result = string.Empty;
 
         var hundreds = number / 100;
-        var tens = number / 10;
-        var ones = number - 10 * tens;
+        var tens = (number - hundreds * 100) / 10;
+        var ones = number - hundreds * 100 - 10 * tens;
 
         result += CalculateHundreds(hundreds);
         result += CalculateTens(tens);
