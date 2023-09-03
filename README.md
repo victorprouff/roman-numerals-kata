@@ -1,4 +1,7 @@
-[Origin](https://codingdojo.org/kata/RomanNumerals/)
+Sources :
+- [Origin](https://codingdojo.org/kata/RomanNumerals/)
+- [Other](https://github.com/deinacademy/tdd_roman_csharp/tree/master)
+
 
 ## Problem Description
 

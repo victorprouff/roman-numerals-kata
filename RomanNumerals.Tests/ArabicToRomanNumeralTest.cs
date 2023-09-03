@@ -57,4 +57,13 @@ public class ArabicToRomanNumeralTest
 
         result.Should().Be(expectedRomanValue);
     }
+
+    [Theory]
+    [InlineData(100, "C")]
+    public void ConvertHundreds(int arabicNumber, string expectedRomanValue)
+    {
+        var result = arabicNumber.ArabicToRomanNumeral();
+
+        result.Should().Be(expectedRomanValue);
+    }
 }

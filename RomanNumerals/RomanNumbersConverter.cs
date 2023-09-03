@@ -6,11 +6,24 @@ public static class RomanNumbersConverter
     {
         var result = string.Empty;
 
+        var hundreds = number / 100;
         var tens = number / 10;
         var ones = number - 10 * tens;
 
+        result += CalculateHundreds(hundreds);
         result += CalculateTens(tens);
         result += CalculateOnes(ones);
+
+        return result;
+    }
+
+    private static string CalculateHundreds(int hundreds)
+    {
+        var result = string.Empty;
+        for (var i = 1; i <= hundreds; i++)
+        {
+            result += "C";
+        }
 
         return result;
     }
