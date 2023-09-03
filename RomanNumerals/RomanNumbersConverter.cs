@@ -42,6 +42,13 @@ public static class RomanNumbersConverter
             return result;
         }
 
+        if (hundreds == 9)
+        {
+            result += "CM";
+
+            return result;
+        }
+
         if (hundreds is >= 5 and < 9)
         {
             hundreds -= 5;

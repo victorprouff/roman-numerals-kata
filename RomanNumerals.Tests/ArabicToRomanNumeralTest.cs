@@ -68,6 +68,7 @@ public class ArabicToRomanNumeralTest
     [InlineData(666, "DCLXVI")]
     [InlineData(777, "DCCLXXVII")]
     [InlineData(876, "DCCCLXXVI")]
+    [InlineData(999, "CMXCIX")]
     public void ConvertHundreds(int arabicNumber, string expectedRomanValue)
     {
         var result = arabicNumber.ArabicToRomanNumeral();
