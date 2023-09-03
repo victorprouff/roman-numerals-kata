@@ -6,7 +6,7 @@ public static class RomanNumbersConverter
     {
         var result = string.Empty;
 
-        var hundreds = new HundredNumber(CalculateHundredNumber(number));
+        var hundreds = new HundredNumber(number);
         var tens = new TensNumber(CalculateTensNumber(number, hundreds.Number));
         var ones = new OnesNumber(CalculateOnesNumber(number, hundreds.Number, tens.Number));
 
@@ -18,7 +18,6 @@ public static class RomanNumbersConverter
     }
 
 
-    private static int CalculateHundredNumber(int number) => number / 100;
     private static int CalculateTensNumber(int number, int hundreds) => (number - hundreds * 100) / 10;
     private static int CalculateOnesNumber(int number, int hundreds, int tens) => number - hundreds * 100 - 10 * tens;
 
@@ -100,6 +99,7 @@ public class OnesNumber : RomanNumber
         : base(number, "I", "V", "X")
     {
     }
+
 }
 
 public class TensNumber : RomanNumber
@@ -113,7 +113,9 @@ public class TensNumber : RomanNumber
 public class HundredNumber : RomanNumber
 {
     public HundredNumber(int number)
-        : base(number, "C", "D", "M")
+        : base(CalculateHundredNumber(number), "C", "D", "M")
     {
     }
+
+    private static int CalculateHundredNumber(int number) => number / 100;
 }
