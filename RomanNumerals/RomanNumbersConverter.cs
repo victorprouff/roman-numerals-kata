@@ -20,9 +20,19 @@ public static class RomanNumbersConverter
     private static string CalculateHundreds(int hundreds)
     {
         var result = string.Empty;
-        for (var i = 1; i <= hundreds; i++)
+        if (hundreds < 4)
         {
-            result += "C";
+            for (var i = 1; i <= hundreds; i++)
+            {
+                result += "C";
+            }
+        }
+
+        if (hundreds == 4)
+        {
+            result += "CD";
+
+            return result;
         }
 
         return result;
