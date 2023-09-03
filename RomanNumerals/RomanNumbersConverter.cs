@@ -7,11 +7,11 @@ public static class RomanNumbersConverter
         var result = string.Empty;
 
         var hundreds = number / 100;
-        var tens = (number - hundreds * 100) / 10;
 
-        var ones = new OnesNumber(number - hundreds * 100 - 10 * tens);
+        var tens = new TensNumber((number - hundreds * 100) / 10);
+        var ones = new OnesNumber(number - hundreds * 100 - 10 * tens.Number);
         result += CalculateHundreds(hundreds);
-        result += CalculateTens(tens);
+        result += tens.CalculateFromArabicNumber();
         result += ones.CalculateFromArabicNumber();
 
         return result;
@@ -63,55 +63,6 @@ public static class RomanNumbersConverter
         return result;
     }
 
-    private static string CalculateTens(int tens)
-    {
-        var result = string.Empty;
-
-        if (tens < 4)
-        {
-            for (var i = 1; i <= tens; i++)
-            {
-                result += "X";
-            }
-
-            return result;
-        }
-
-        if (tens == 4)
-        {
-            result += "XL";
-
-            return result;
-        }
-
-        if (tens == 5)
-        {
-            result += "L";
-
-            return result;
-        }
-
-        if (tens == 9)
-        {
-            result += "XC";
-
-            return result;
-        }
-
-        if (tens is >= 5 and < 9)
-        {
-            tens -= 5;
-            result += "L";
-
-            for (var i = 1; i <= tens; i++)
-            {
-                result += "X";
-            }
-        }
-
-        return result;
-    }
-
     public static string RomanNumeralToArabic(this string number)
     {
         throw new NotImplementedException();
@@ -120,7 +71,7 @@ public static class RomanNumbersConverter
 
 public abstract class RomanNumber
 {
-    private int Number { get; set; }
+    public int Number { get; private set; }
 
     protected RomanNumber(int number, string unit, string middle, string superiorUnit)
     {
@@ -188,6 +139,14 @@ public class OnesNumber : RomanNumber
 {
     public OnesNumber(int number)
         : base(number, "I", "V", "X")
+    {
+    }
+}
+
+public class TensNumber : RomanNumber
+{
+    public TensNumber(int number)
+        : base(number, "X", "L", "C")
     {
     }
 }
