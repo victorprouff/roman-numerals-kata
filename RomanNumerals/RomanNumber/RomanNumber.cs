@@ -9,9 +9,9 @@ public abstract class RomanNumber
     }
 
     public int Number { get; set; }
-    private RomanLetters RomanLetters { get; }
+    protected RomanLetters RomanLetters { get; }
 
-    public string CalculateRomanNumber()
+    public virtual string CalculateRomanNumber()
     {
         var result = string.Empty;
 

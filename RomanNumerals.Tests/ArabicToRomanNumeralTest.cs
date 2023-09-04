@@ -75,4 +75,15 @@ public class ArabicToRomanNumeralTest
 
         result.Should().Be(expectedRomanValue);
     }
+
+    [Theory]
+    [InlineData(1000, "M")]
+    [InlineData(1111, "MCXI")]
+    [InlineData(4999, "MMMMCMXCIX")]
+    public void ConvertThousands(int arabicNumber, string expectedRomanValue)
+    {
+        var result = arabicNumber.ArabicToRomanNumeral();
+
+        result.Should().Be(expectedRomanValue);
+    }
 }
