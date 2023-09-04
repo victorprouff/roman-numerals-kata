@@ -68,3 +68,22 @@ public abstract class RomanNumber
 }
 
 public record RomanLetters(string Unit, string Middle, string SuperiorUnit);
+
+public class BuilderRomanNumber
+{
+    private readonly OnesNumber _ones;
+    private readonly TensNumber _tens;
+    private readonly HundredNumber _hundreds;
+
+    public BuilderRomanNumber(int number)
+    {
+        _ones = new OnesNumber(number);
+        _tens = new TensNumber(number);
+        _hundreds = new HundredNumber(number);
+    }
+
+    public string GetRomanNumber() =>
+        _hundreds.CalculateFromArabicNumber()
+        + _tens.CalculateFromArabicNumber()
+        + _ones.CalculateFromArabicNumber();
+}
