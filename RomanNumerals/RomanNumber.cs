@@ -2,7 +2,7 @@ namespace RomanNumerals;
 
 public abstract class RomanNumber
 {
-    public int Number { get; private set; }
+    private int Number { get; set; }
 
     protected RomanNumber(int number, RomanLetters romanLetters)
     {
@@ -10,7 +10,7 @@ public abstract class RomanNumber
         RomanLetters = romanLetters;
     }
 
-    public RomanLetters RomanLetters { get; set; }
+    private RomanLetters RomanLetters { get; set; }
 
     public string CalculateFromArabicNumber()
     {

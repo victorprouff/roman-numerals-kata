@@ -6,9 +6,9 @@ public static class RomanNumbersConverter
     {
         var result = string.Empty;
 
-        var hundreds = new HundredNumber(number);
-        var tens = new TensNumber(number);
         var ones = new OnesNumber(number);
+        var tens = new TensNumber(number);
+        var hundreds = new HundredNumber(number);
 
         result += hundreds.CalculateFromArabicNumber();
         result += tens.CalculateFromArabicNumber();
