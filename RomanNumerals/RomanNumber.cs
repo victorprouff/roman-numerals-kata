@@ -2,14 +2,13 @@ namespace RomanNumerals;
 
 public abstract class RomanNumber
 {
-
     protected RomanNumber(int number, RomanLetters romanLetters)
     {
         Number = number;
         RomanLetters = romanLetters;
     }
 
-    private int Number { get; set; }
+    public int Number { get; set; }
     private RomanLetters RomanLetters { get; }
 
     public string CalculateFromArabicNumber()
@@ -75,15 +74,22 @@ public class BuilderRomanNumber
     private readonly TensNumber _tens;
     private readonly HundredNumber _hundreds;
 
+    private int Number { get; }
     public BuilderRomanNumber(int number)
     {
-        _ones = new OnesNumber(number);
+        Number = number;
+
         _tens = new TensNumber(number);
         _hundreds = new HundredNumber(number);
+
+        _ones = new OnesNumber(CalculateOnesNumber(_hundreds.Number, _tens.Number));
     }
 
     public string GetRomanNumber() =>
         _hundreds.CalculateFromArabicNumber()
         + _tens.CalculateFromArabicNumber()
         + _ones.CalculateFromArabicNumber();
+
+    private int CalculateOnesNumber(int hundreds, int tens) => Number - hundreds * 100 - 10 * tens;
+
 }
