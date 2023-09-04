@@ -8,9 +8,7 @@ public class OnesNumber : RomanNumber
                 CalculateHundredNumber(number),
                 CalculateTensNumber(number,
                     CalculateHundredNumber(number))),
-            "I",
-            "V",
-            "X")
+            new RomanLetters("I", "V", "X"))
     {
     }
 }

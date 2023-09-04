@@ -4,17 +4,13 @@ public abstract class RomanNumber
 {
     public int Number { get; private set; }
 
-    protected RomanNumber(int number, string unit, string middle, string superiorUnit)
+    protected RomanNumber(int number, RomanLetters romanLetters)
     {
         Number = number;
-        Unit = unit;
-        Middle = middle;
-        SuperiorUnit = superiorUnit;
+        RomanLetters = romanLetters;
     }
 
-    private string Unit { get; }
-    private string Middle { get; }
-    private string SuperiorUnit { get; }
+    public RomanLetters RomanLetters { get; set; }
 
     public string CalculateFromArabicNumber()
     {
@@ -24,7 +20,7 @@ public abstract class RomanNumber
         {
             for (var i = 1; i <= Number; i++)
             {
-                result += Unit;
+                result += RomanLetters.Unit;
             }
 
             return result;
@@ -32,21 +28,21 @@ public abstract class RomanNumber
 
         if (Number == 4)
         {
-            result += $"{Unit}{Middle}";
+            result += $"{RomanLetters.Unit}{RomanLetters.Middle}";
 
             return result;
         }
 
         if (Number == 9)
         {
-            result += $"{Unit}{SuperiorUnit}";
+            result += $"{RomanLetters.Unit}{RomanLetters.SuperiorUnit}";
 
             return result;
         }
 
         if (Number == 5)
         {
-            result += $"{Middle}";
+            result += $"{RomanLetters.Middle}";
 
             return result;
         }
@@ -54,11 +50,11 @@ public abstract class RomanNumber
         if (Number is >= 5 and < 9)
         {
             Number -= 5;
-            result += $"{Middle}";
+            result += $"{RomanLetters.Middle}";
 
             for (var i = 1; i <= Number; i++)
             {
-                result += $"{Unit}";
+                result += $"{RomanLetters.Unit}";
             }
         }
 
@@ -69,5 +65,6 @@ public abstract class RomanNumber
 
     protected static int CalculateTensNumber(int number, int hundreds) => (number - hundreds * 100) / 10;
     protected static int CalculateOnesNumber(int number, int hundreds, int tens) => number - hundreds * 100 - 10 * tens;
-
 }
+
+public record RomanLetters(string Unit, string Middle, string SuperiorUnit);
