@@ -60,10 +60,7 @@ public abstract class RomanNumber
         return result;
     }
 
-
     protected static int CalculateHundredNumber(int number) => number / 100;
-    protected static int CalculateTensNumber(int number, int hundreds) => (number - hundreds * 100) / 10;
-    protected static int CalculateOnesNumber(int number, int hundreds, int tens) => number - hundreds * 100 - 10 * tens;
 }
 
 public record RomanLetters(string Unit, string Middle, string SuperiorUnit);
@@ -79,9 +76,8 @@ public class BuilderRomanNumber
     {
         Number = number;
 
-        _tens = new TensNumber(number);
         _hundreds = new HundredNumber(number);
-
+        _tens = new TensNumber(CalculateTensNumber(_hundreds.Number));
         _ones = new OnesNumber(CalculateOnesNumber(_hundreds.Number, _tens.Number));
     }
 
@@ -92,4 +88,5 @@ public class BuilderRomanNumber
 
     private int CalculateOnesNumber(int hundreds, int tens) => Number - hundreds * 100 - 10 * tens;
 
+    private int CalculateTensNumber(int hundreds) => (Number - hundreds * 100) / 10;
 }
