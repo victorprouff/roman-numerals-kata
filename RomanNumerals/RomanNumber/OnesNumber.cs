@@ -1,4 +1,4 @@
-namespace RomanNumerals;
+namespace RomanNumerals.RomanNumber;
 
 public class OnesNumber : RomanNumber
 {
