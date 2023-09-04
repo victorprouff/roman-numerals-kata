@@ -2,7 +2,6 @@ namespace RomanNumerals;
 
 public abstract class RomanNumber
 {
-    private int Number { get; set; }
 
     protected RomanNumber(int number, RomanLetters romanLetters)
     {
@@ -10,7 +9,8 @@ public abstract class RomanNumber
         RomanLetters = romanLetters;
     }
 
-    private RomanLetters RomanLetters { get; set; }
+    private int Number { get; set; }
+    private RomanLetters RomanLetters { get; }
 
     public string CalculateFromArabicNumber()
     {
@@ -61,8 +61,8 @@ public abstract class RomanNumber
         return result;
     }
 
-    protected static int CalculateHundredNumber(int number) => number / 100;
 
+    protected static int CalculateHundredNumber(int number) => number / 100;
     protected static int CalculateTensNumber(int number, int hundreds) => (number - hundreds * 100) / 10;
     protected static int CalculateOnesNumber(int number, int hundreds, int tens) => number - hundreds * 100 - 10 * tens;
 }
